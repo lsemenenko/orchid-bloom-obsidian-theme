@@ -1,0 +1,647 @@
+/* ---------------------------------------------------------------------------
+
+Orchid Bloom Theme for Obsidian
+
+Inspired by the serene blues, vibrant pinks, and soft gradients 
+of orchid flowers. A theme that brings natural beauty and 
+tranquility to your note-taking experience.
+
+Author: Leonid Semenenko
+Version: 1.0.0
+License: MIT
+
+---------------------------------------------------------------------------- */
+
+/* @plugins
+core:
+- backlink
+- command-palette
+- daily-notes
+- file-explorer
+- file-recovery
+- global-search
+- graph
+- outgoing-link
+- outline
+- page-preview
+- publish
+- random-note
+- starred
+- switcher
+- sync
+- tag-pane
+- word-count
+community:
+- style-settings
+- minimal-theme-settings
+- dataview
+- calendar
+- kanban
+- excalidraw
+*/
+
+/* @settings
+name: Orchid Bloom
+id: orchid-bloom-style
+settings:
+	-
+		id: instructions
+		title: Orchid Bloom Theme
+		type: heading
+		level: 2
+		collapsed: true
+		description: A beautiful theme inspired by orchid flowers, featuring serene blues and vibrant pinks. Customize the colors below to match your preference.
+	-
+		id: interface-colors
+		title: Interface Colors
+		type: heading
+		level: 2
+		collapsed: true
+	-
+		id: primary-blue
+		title: Primary Blue
+		description: Main blue color from orchid petals
+		type: variable-themed-color
+		format: hex
+		default-light: '#7BB3E8'
+		default-dark: '#5A9BD4'
+	-
+		id: accent-pink
+		title: Accent Pink
+		description: Vibrant pink from orchid center
+		type: variable-themed-color
+		format: hex
+		default-light: '#E85BB3'
+		default-dark: '#D646A7'
+	-
+		id: soft-lavender
+		title: Soft Lavender
+		description: Gentle lavender for backgrounds
+		type: variable-themed-color
+		format: hex
+		default-light: '#F0EFFF'
+		default-dark: '#2A2B3D'
+	-
+		id: mint-green
+		title: Mint Accent
+		description: Fresh mint green from orchid stems
+		type: variable-themed-color
+		format: hex
+		default-light: '#7FE8A3'
+		default-dark: '#6BD68A'
+*/
+
+:root {
+    /* Orchid Color Palette */
+    --orchid-blue-light: #A8D0F0;
+    --orchid-blue: #7BB3E8;
+    --orchid-blue-dark: #5A9BD4;
+    --orchid-pink-light: #F2A8D8;
+    --orchid-pink: #E85BB3;
+    --orchid-pink-dark: #D646A7;
+    --orchid-lavender-light: #F0EFFF;
+    --orchid-lavender: #E0DFFF;
+    --orchid-lavender-dark: #D0CFFF;
+    --orchid-mint: #7FE8A3;
+    --orchid-mint-dark: #6BD68A;
+    --orchid-white: #FDFEFF;
+    --orchid-cream: #F9FAFE;
+    --orchid-grey-light: #E8EEFF;
+    --orchid-grey: #C8CCDD;
+    --orchid-grey-dark: #8B8FA0;
+    --orchid-dark-blue: #2A3B4D;
+    --orchid-dark-purple: #2A2B3D;
+}
+
+/* Light Theme */
+.theme-light {
+    /* Base colors */
+    --background-primary: var(--orchid-white);
+    --background-primary-alt: var(--orchid-cream);
+    --background-secondary: var(--orchid-lavender-light);
+    --background-secondary-alt: var(--orchid-grey-light);
+    --background-modifier-border: var(--orchid-grey);
+    --background-modifier-form-field: var(--orchid-lavender-light);
+    --background-modifier-form-field-highlighted: var(--orchid-lavender);
+    --background-modifier-box-shadow: rgba(123, 179, 232, 0.1);
+    --background-modifier-success: var(--orchid-mint);
+    --background-modifier-error: #FF6B6B;
+    --background-modifier-error-hover: #FF5252;
+    --background-modifier-cover: rgba(123, 179, 232, 0.1);
+    
+    /* Interactive elements */
+    --interactive-normal: var(--orchid-grey-light);
+    --interactive-hover: var(--orchid-lavender);
+    --interactive-accent: var(--orchid-blue);
+    --interactive-accent-hover: var(--orchid-blue-dark);
+    --interactive-success: var(--orchid-mint);
+    
+    /* Text colors */
+    --text-normal: #2C3E50;
+    --text-muted: var(--orchid-grey-dark);
+    --text-faint: var(--orchid-grey);
+    --text-error: #E74C3C;
+    --text-accent: var(--orchid-blue-dark);
+    --text-accent-hover: var(--orchid-pink-dark);
+    --text-on-accent: var(--orchid-white);
+    --text-selection: rgba(123, 179, 232, 0.2);
+    
+    /* Headings */
+    --text-title-h1: var(--orchid-pink-dark);
+    --text-title-h2: var(--orchid-blue-dark);
+    --text-title-h3: var(--orchid-pink);
+    --text-title-h4: var(--orchid-blue);
+    --text-title-h5: var(--orchid-pink-light);
+    --text-title-h6: var(--orchid-blue-light);
+    
+    /* Links and highlights */
+    --text-link: var(--orchid-blue-dark);
+    --text-link-decoration: none;
+    --text-link-decoration-hover: underline;
+    --text-highlight-bg: rgba(232, 91, 179, 0.2);
+    --text-highlight-bg-active: rgba(232, 91, 179, 0.3);
+    
+    /* Code */
+    --code-normal: var(--orchid-pink-dark);
+    --code-background: var(--orchid-lavender-light);
+    --code-comment: var(--orchid-grey-dark);
+    --code-function: var(--orchid-blue-dark);
+    --code-keyword: var(--orchid-pink-dark);
+    --code-string: var(--orchid-mint-dark);
+    --code-tag: var(--orchid-blue);
+    --code-value: var(--orchid-pink);
+    
+    /* Graph colors */
+    --graph-line: var(--orchid-grey);
+    --graph-node: var(--orchid-blue);
+    --graph-node-tag: var(--orchid-pink);
+    --graph-node-attachment: var(--orchid-mint);
+    --graph-node-unresolved: var(--orchid-grey-dark);
+    --graph-node-focused: var(--orchid-pink-dark);
+}
+
+/* Dark Theme */
+.theme-dark {
+    /* Base colors */
+    --background-primary: var(--orchid-dark-purple);
+    --background-primary-alt: #242538;
+    --background-secondary: var(--orchid-dark-blue);
+    --background-secondary-alt: #1E2A3A;
+    --background-modifier-border: #404660;
+    --background-modifier-form-field: #353650;
+    --background-modifier-form-field-highlighted: #404660;
+    --background-modifier-box-shadow: rgba(0, 0, 0, 0.3);
+    --background-modifier-success: var(--orchid-mint-dark);
+    --background-modifier-error: #FF6B6B;
+    --background-modifier-error-hover: #FF5252;
+    --background-modifier-cover: rgba(42, 43, 61, 0.9);
+    
+    /* Interactive elements */
+    --interactive-normal: #404660;
+    --interactive-hover: #505670;
+    --interactive-accent: var(--orchid-blue);
+    --interactive-accent-hover: var(--orchid-blue-light);
+    --interactive-success: var(--orchid-mint-dark);
+    
+    /* Text colors */
+    --text-normal: #E8EEFF;
+    --text-muted: #A8ACB8;
+    --text-faint: #707590;
+    --text-error: #FF7979;
+    --text-accent: var(--orchid-blue-light);
+    --text-accent-hover: var(--orchid-pink-light);
+    --text-on-accent: var(--orchid-dark-purple);
+    --text-selection: rgba(123, 179, 232, 0.3);
+    
+    /* Headings */
+    --text-title-h1: var(--orchid-pink-light);
+    --text-title-h2: var(--orchid-blue-light);
+    --text-title-h3: var(--orchid-pink);
+    --text-title-h4: var(--orchid-blue);
+    --text-title-h5: var(--orchid-pink-dark);
+    --text-title-h6: var(--orchid-blue-dark);
+    
+    /* Links and highlights */
+    --text-link: var(--orchid-blue-light);
+    --text-link-decoration: none;
+    --text-link-decoration-hover: underline;
+    --text-highlight-bg: rgba(232, 91, 179, 0.25);
+    --text-highlight-bg-active: rgba(232, 91, 179, 0.35);
+    
+    /* Code */
+    --code-normal: var(--orchid-pink-light);
+    --code-background: #353650;
+    --code-comment: #8B8FA0;
+    --code-function: var(--orchid-blue-light);
+    --code-keyword: var(--orchid-pink-light);
+    --code-string: var(--orchid-mint);
+    --code-tag: var(--orchid-blue);
+    --code-value: var(--orchid-pink);
+    
+    /* Graph colors */
+    --graph-line: #505670;
+    --graph-node: var(--orchid-blue);
+    --graph-node-tag: var(--orchid-pink);
+    --graph-node-attachment: var(--orchid-mint);
+    --graph-node-unresolved: #707590;
+    --graph-node-focused: var(--orchid-pink-light);
+}
+
+/* Custom Styling */
+
+/* Workspace ribbons with orchid gradients */
+.workspace-ribbon.mod-left {
+    background: linear-gradient(180deg, var(--orchid-lavender-light) 0%, var(--orchid-blue-light) 100%);
+}
+
+.theme-dark .workspace-ribbon.mod-left {
+    background: linear-gradient(180deg, var(--orchid-dark-purple) 0%, var(--orchid-dark-blue) 100%);
+}
+
+/* Tab headers with subtle orchid accent */
+.workspace-tab-header.is-active {
+    background: linear-gradient(90deg, var(--orchid-pink) 0%, var(--orchid-blue) 100%);
+    color: var(--text-on-accent);
+    border-radius: 8px 8px 0 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.workspace-tabs.mod-top-left-space .workspace-tab-header.tappable.is-active, .workspace-split.mod-sidedock.mod-right-split .workspace-tab-header.tappable.is-active {
+    border-radius: 8px 8px 8px 8px;
+}
+
+.workspace-tab-header.is-active::before,
+.workspace-tab-header.is-active::after {
+    display: none;
+}
+
+.workspace-tab-header {
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+}
+
+.theme-dark .workspace-tab-header.is-active {
+    background: linear-gradient(90deg, var(--orchid-pink-dark) 0%, var(--orchid-blue-dark) 100%);
+}
+
+/* Headers with orchid styling */
+.markdown-preview-view h1,
+.markdown-rendered h1 {
+    color: var(--text-title-h1);
+    background: linear-gradient(135deg, var(--orchid-pink) 0%, var(--orchid-blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(90deg, var(--orchid-pink) 0%, var(--orchid-blue) 100%) 1;
+    padding-bottom: 0.3em;
+    text-shadow: 0 0 10px rgba(232, 91, 179, 0.2);
+}
+
+.markdown-preview-view h2,
+.markdown-rendered h2 {
+    color: var(--orchid-blue-dark);
+    border-bottom: 2px solid var(--orchid-blue-dark);
+    padding-bottom: 0.2em;
+    font-weight: 650;
+}
+
+.markdown-preview-view h3,
+.markdown-rendered h3 {
+    color: var(--orchid-pink);
+    font-weight: 600;
+}
+
+.markdown-preview-view h4,
+.markdown-rendered h4 {
+    color: var(--orchid-blue);
+    font-weight: 550;
+}
+
+.markdown-preview-view h5,
+.markdown-rendered h5 {
+    color: var(--orchid-mint-dark);
+    font-weight: 500;
+}
+
+.markdown-preview-view h6,
+.markdown-rendered h6 {
+    color: var(--orchid-pink-dark);
+    font-weight: 500;
+}
+
+/* Links with orchid hover effects */
+.markdown-preview-view a,
+.markdown-rendered a,
+.cm-link {
+    color: var(--text-link);
+    text-decoration: var(--text-link-decoration);
+    transition: all 0.2s ease;
+}
+
+.markdown-preview-view a:hover,
+.markdown-rendered a:hover,
+.cm-link:hover {
+    color: var(--text-accent-hover);
+    text-decoration: var(--text-link-decoration-hover);
+    text-shadow: 0 0 8px rgba(232, 91, 179, 0.3);
+}
+
+/* Tags with orchid styling */
+.tag {
+    background: linear-gradient(45deg, var(--orchid-pink) 0%, var(--orchid-blue) 100%);
+    color: var(--text-on-accent);
+    border-radius: 12px;
+    padding: 2px 8px;
+    font-size: 0.85em;
+}
+
+.theme-dark .tag {
+    background: linear-gradient(45deg, var(--orchid-pink-dark) 0%, var(--orchid-blue-dark) 100%);
+}
+
+/* Blockquotes with orchid accent */
+.markdown-preview-view blockquote,
+.markdown-rendered blockquote {
+    border-left: 4px solid var(--orchid-pink);
+    background: linear-gradient(90deg, rgba(232, 91, 179, 0.1) 0%, rgba(123, 179, 232, 0.05) 100%);
+    padding: 1em;
+    margin: 1em 0;
+    border-radius: 0 8px 8px 0;
+}
+
+/* Code blocks with orchid theming */
+.markdown-preview-view pre code,
+.markdown-rendered pre code {
+    background: var(--code-background);
+    border: 1px solid var(--orchid-grey);
+    border-radius: 8px;
+}
+
+.theme-dark .markdown-preview-view pre code,
+.theme-dark .markdown-rendered pre code {
+    border-color: #404660;
+}
+
+/* Inline code with orchid accent */
+.markdown-preview-view code,
+.markdown-rendered code,
+.cm-inline-code {
+    background: var(--code-background);
+    color: var(--code-normal);
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+/* Checkboxes with orchid styling */
+.markdown-preview-view input[type="checkbox"],
+.markdown-rendered input[type="checkbox"] {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--orchid-blue);
+    border-radius: 3px;
+    background: var(--background-primary);
+    cursor: pointer;
+    position: relative;
+}
+
+.markdown-preview-view input[type="checkbox"]:checked,
+.markdown-rendered input[type="checkbox"]:checked {
+    background: linear-gradient(45deg, var(--orchid-pink) 0%, var(--orchid-blue) 100%);
+    border-color: var(--orchid-pink);
+}
+
+.markdown-preview-view input[type="checkbox"]:checked::after,
+.markdown-rendered input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    top: -2px;
+    left: 2px;
+    color: var(--text-on-accent);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Tables with orchid styling */
+.markdown-preview-view table,
+.markdown-rendered table {
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(123, 179, 232, 0.1);
+}
+
+.markdown-preview-view th,
+.markdown-rendered th {
+    background: linear-gradient(90deg, var(--orchid-blue) 0%, var(--orchid-pink) 100%);
+    color: var(--text-on-accent);
+    padding: 12px;
+    text-align: left;
+}
+
+.markdown-preview-view tr:nth-child(even),
+.markdown-rendered tr:nth-child(even) {
+    background: rgba(123, 179, 232, 0.05);
+}
+
+/* Search results with orchid highlighting */
+.search-result-file-match-highlight {
+    background: var(--text-highlight-bg);
+    color: var(--text-accent-hover);
+    font-weight: 600;
+}
+
+/* File explorer with orchid accents */
+.nav-file-title.is-active {
+    background: linear-gradient(90deg, rgba(232, 91, 179, 0.2) 0%, rgba(123, 179, 232, 0.1) 100%);
+    color: var(--text-accent);
+}
+
+/* Buttons with orchid styling */
+.mod-cta {
+    background: linear-gradient(45deg, var(--orchid-pink) 0%, var(--orchid-blue) 100%);
+    color: var(--text-on-accent);
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    transition: all 0.2s ease;
+}
+
+.mod-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(232, 91, 179, 0.3);
+}
+
+/* Status bar with orchid gradient */
+.status-bar {
+    background: linear-gradient(90deg, var(--orchid-lavender-light) 0%, var(--orchid-blue-light) 100%);
+    border-top: 1px solid var(--orchid-grey);
+}
+
+.theme-dark .status-bar {
+    background: linear-gradient(90deg, var(--orchid-dark-purple) 0%, var(--orchid-dark-blue) 100%);
+    border-top-color: #404660;
+}
+
+/* Scrollbars with orchid theming */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--orchid-pink) 0%, var(--orchid-blue) 100%);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--orchid-pink-dark) 0%, var(--orchid-blue-dark) 100%);
+}
+
+/* Plugin-specific styling */
+
+/* Calendar plugin */
+.calendar-view {
+    background: var(--background-primary);
+}
+
+.calendar-view .today {
+    background: var(--orchid-pink) !important;
+    color: var(--text-on-accent) !important;
+}
+
+/* Kanban plugin */
+.kanban-plugin {
+    --kanban-lane-background: var(--background-secondary);
+}
+
+.kanban-plugin__lane-header {
+    background: linear-gradient(90deg, var(--orchid-blue) 0%, var(--orchid-pink) 100%);
+    color: var(--text-on-accent);
+}
+
+/* Graph view enhancements */
+.graph-view.color-fill {
+    --graph-node: var(--orchid-blue);
+    --graph-node-tag: var(--orchid-pink);
+    --graph-node-attachment: var(--orchid-mint);
+    --graph-node-unresolved: var(--orchid-grey-dark);
+}
+
+/* Excalidraw integration */
+.excalidraw-wrapper {
+    border: 2px solid var(--orchid-grey);
+    border-radius: 8px;
+}
+
+/* Dataview plugin styling */
+.dataview.table-view-table {
+    border: 1px solid var(--orchid-grey);
+    border-radius: 8px;
+}
+
+.dataview.table-view-table th {
+    background: var(--orchid-lavender);
+    color: var(--text-normal);
+}
+
+/* Live preview editor headers */
+.cm-header-1,
+.HyperMD-header-1 {
+    background: linear-gradient(135deg, var(--orchid-pink) 0%, var(--orchid-blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
+
+.cm-header-2,
+.HyperMD-header-2 {
+    color: var(--orchid-blue-dark);
+    font-weight: 650;
+}
+
+.cm-header-3,
+.HyperMD-header-3 {
+    color: var(--orchid-pink);
+    font-weight: 600;
+}
+
+.cm-header-4,
+.HyperMD-header-4 {
+    color: var(--orchid-blue);
+    font-weight: 550;
+}
+
+.cm-header-5,
+.HyperMD-header-5 {
+    color: var(--orchid-mint-dark);
+    font-weight: 500;
+}
+
+.cm-header-6,
+.HyperMD-header-6 {
+    color: var(--orchid-pink-dark);
+    font-weight: 500;
+}
+* {
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Focus states with orchid glow */
+input:focus,
+textarea:focus,
+.cm-editor.cm-focused {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(232, 91, 179, 0.5);
+}
+
+/* Selection styling */
+::selection {
+    background: var(--text-selection);
+    color: var(--text-normal);
+}
+
+/* Custom orchid accents for special elements */
+.callout[data-callout="note"] {
+    --callout-color: var(--orchid-blue);
+}
+
+.callout[data-callout="tip"] {
+    --callout-color: var(--orchid-mint);
+}
+
+.callout[data-callout="warning"] {
+    --callout-color: var(--orchid-pink);
+}
+
+/* Enhanced sidebar styling */
+.workspace-split.mod-left-split {
+    border-right: 1px solid var(--orchid-grey);
+}
+
+.theme-dark .workspace-split.mod-left-split {
+    border-right-color: #404660;
+}
+
+/* Modern card-like note styling */
+.workspace-leaf-content {
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(123, 179, 232, 0.1);
+}
+
+/* Responsive design considerations */
+@media (max-width: 768px) {
+    .workspace-ribbon.mod-left {
+        background: var(--background-secondary);
+    }
+    
+    .status-bar {
+        background: var(--background-secondary);
+    }
+}
